@@ -1,0 +1,33 @@
+{
+   "TestBedMap":{
+      "BGP_TestSuite":[
+         "testBed1",
+         "testBed2",
+         "testBed3",
+         "testBed4"
+      ],
+      "OSPF_TestSuite":[
+         "testBed1",
+         "testBed2",
+         "testBed5",
+         "testBed6"
+      ],
+      "Interface_TestSuite":[
+         "testBed7"
+      ],
+      "STP_TestSuite":[
+         "testBed8",
+         "testBed2"
+      ]
+   },
+   "Status":{
+      "testBed1":"Available",
+      "testBed2":"Available",
+      "testBed3":"Available",
+      "testBed4":"Available",
+      "testBed5":"Available",
+      "testBed6":"Available",
+      "testBed7":"Available",
+      "testBed8":"Available"
+   }
+}

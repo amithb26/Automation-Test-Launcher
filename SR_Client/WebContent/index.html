@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="NOS">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>NOS TEST TOOL</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<link rel="stylesheet" href="gui.css">
+</head>
+
+<body ng-controller="NOSController">
+<img src="CQT_ICON.png" alt="logo">
+<h1>Flex self-service Test Launcher</h1>
+<div>
+<form name="myForm">
+<p>UserName:
+<input name="myName" ng-model="myName" required>
+<span ng-show="myForm.myName.$invalid">User Name is required.</span>
+</p>
+</form>
+<p>Comments:
+<input name="myAddress" ng-model="myAddress" required>
+</p>
+<!--input type="text" ng-model="username" placeholder="username" required/  -->
+<h3>Choose The Test Suite:</h3>
+   <div ng-repeat="protoName in protocols track by $index">
+       <input type="radio" name ="PTCL{{$index}}" 
+       ng-model="dataPT.selectedPT" 
+       ng-value="protoName" 
+       ng-change="PTchangefn()"
+       ng-click="PTtoggle()">{{protoName}}
+   </div>
+      <h3>Selected Protocol : <span><i>{{dataPT.selectedPT}}</i></span></h3> 
+</div>
+<div ng-show="testbedshow && !myForm.myName.$invalid">
+<h3>Choose the Testbed:</h3>
+    <div ng-repeat="TBName in TBList track by $index">
+       <input type="radio" name ="TBLS{{$index}}" 
+       ng-model="dataTB.selectedTB" 
+       ng-value="TBName" 
+       ng-change="TBchangefn()"
+       ng-click="TBtoggle()">{{TBName}}
+    </div>
+    <div>
+      <h3>Selected Testbed : <span><i>{{dataTB.selectedTB}}</i></span></h3>  
+    </div>
+</div>
+<div ng-show="availableshow && !myForm.myName.$invalid">
+    <h3>Availability of selected Testbed: <span><i><b>{{TBstatus}}</b></i></span></h3>
+    <input type=button value="Reserve Testbed" ng-click="reserveTB()">
+    <input type=button value="Release Testbed" ng-click="releaseTB()">
+</div>
+
+<div ng-show="imageshow && !myForm.myName.$invalid">
+    <form name="myForm1">
+    <h3>Enter Image full path:</h3> 
+    <input type="text" name="imageloc" ng-model="imageloc" placeholder= "Ex:/path/to/image/image.deb" required/>
+    <span ng-show="myForm1.imageloc.$invalid">Please provide valid image path.</span>
+    <div ng-show=!myForm1.imageloc.$invalid >
+    <p><input type= button value="Launch" ng-click="launch()"></p>
+    </div>
+    </form>
+    <p></p>
+<textarea rows="10" cols="100">
+requestStatus :  {{requestStatus}}
+errorPoint    :  {{errorPoint}}
+responseData  :  {{resdata}}
+headers       :  {{headers}}
+statustext    :  {{statustext}}
+statusval     :  {{statusval}}
+responsetext  :  {{responsetext}}
+</textarea>
+	
+</div>
+
+</body>
+</html>

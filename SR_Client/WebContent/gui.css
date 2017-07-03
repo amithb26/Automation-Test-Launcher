@@ -1,0 +1,38 @@
+<style>
+html {
+      width:100%;
+      height: 100%;
+     }
+body {
+      width:95%;
+      height: 100%; 
+      background-color: Cyan;
+      border: 4px solid black;
+      padding: 30px
+     }                                                                                                                                                 
+h1 {
+      color:red ; 
+      font-family:Georgia;
+      text-align:center;
+    }
+
+p {
+    color: Black;
+}
+img {
+    float:right;
+    width:200px;
+    height:150px;
+     }
+span  {
+    color:Green;
+   
+      }
+h3 {
+    color: red;
+}
+button{
+	border:3px solid #336600
+}      
+
+</style>
